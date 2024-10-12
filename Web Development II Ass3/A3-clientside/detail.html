@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Detail</title>
+	<link href="css/detail.css" rel="stylesheet">
+	<link href="css/share.css" rel="stylesheet">
+</head>
+
+<body>
+	<!--Top navigation-->
+	<div class="headr">
+		<div class="heard-con">
+			<img src="images/logo.jpg" style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+			<div class="headr-nav">
+				<ul>
+					<li><a href="index.html">Home Page</span></a> </li>
+					<li><a href="list.html" style="color: #4AB344"><span style="color: #4AB344"></span>List Page</a> </li>
+				</ul>
+				<ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+			</div>
+		</div>
+	</div>
+	<!--Top navigation-->
+	<!--banner-->
+	<div class="her-banner">
+	</div>
+	<!--banner-->
+
+	<div class="content">
+		<div class="cont-top">
+			<div class="cont-left">
+				<div class="ctl-img" id="fundraiser_image">
+					<img src="images/logo.jpg" style="width: 400px;height: 400px;" >
+				</div>
+				<div class="collect">
+					<div class="coll">
+						<span id="organizer"></span> is this organizer fundraiser / <span id="active"></span>
+					</div>
+				</div>
+				
+			</div>
+			<div class="cont-right">
+				<div class="J_productTitle title g_minor">
+					<span id="caption"></span>
+				</div>
+				<div class="pic">
+					<span class="ppi">Current funding</span>
+					<span class="f-mallUnit">&nbsp;&nbsp;&nbsp;USD</span>
+					<span class="pcc" id="current_funding"></span>
+				</div>
+				<div class="pic">
+					<span class="ppi">Target funding</span>
+					<span class="f-mallUnit">&nbsp;&nbsp;&nbsp;USD</span>
+					<span  id="target_funding"></span>
+				</div>
+				<div class="pict">
+					<div class="f-proSatifySumWrap">
+						<div class="f-satifyDetail">
+							<span class="g_minor  salesVolume">Category:</span><span class="J_commNum" id="name"></span>
+						</div>
+					</div>
+				</div>
+				<div class="pict">
+					<div class="f-proSatifySumWrap">
+						<div class="f-satifyDetail">
+							<span class="g_minor  salesVolume">City:</span><span class="J_commNum" id="city"></span>
+						</div>
+					</div>
+				</div>
+				<div class="fk-pd5MallActBtns">
+					<div class="buttn" onclick="alert('This feature is under contruction')">
+						Donate
+					</div>
+					<div class="buttn butto" onclick="window.location.href='list.html'">
+						Back
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cont-bot">
+			<div class="hd" style="margin-bottom: 50px;">
+				<ul>
+					<li class="active">
+						<div class="hd1 acti">
+						</div>
+						Fundraising Detail
+					</li>
+					<li>
+						<div class="hd1">
+						</div>
+						Comment(0)
+					</li>
+					<li>
+						<div class="hd1">
+						</div>
+						Fundraising log(0)
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		//Initialization function, executed during page loading
+		init();
+		//Responsible for obtaining URL parameters and initiating network requests, and then updating page content based on the request results
+		function init() {
+			//Create URL parameter object to obtain GET parameters
+			let params = new URLSearchParams(window.location.search)
+			//Initiate a network request to obtain details page data
+			fetch('http://localhost:8111/detail/' + params.get("id")).then(response => {
+				//Check the network response status and throw an error if it is not normal
+				if (!response.ok) {
+					throw new Error('Network response was not ok');
+				}
+				//Parse response to JSON format
+				return response.json();
+			}).then(res => {
+				//Check the request status, if it is 200, update the page content
+				if (res.status == 200) {
+					//Traverse response data and update page element text content
+					for (const key in res.data) {
+						//Determine whether to display 'Active' or 'Inactive' based on the value of the 'active' field
+						if(key=="active"){
+							res.data[key] = res.data[key] == 1?'Active':'Inactive'
+						}
+						try {
+							document.getElementById(key).innerText = res.data[key]
+						} catch (error) {}
+						//Special processing of image fields, rendering images by setting inline styles
+						if(key == 'fundraiser_image'){
+							//Rendering images
+							document.getElementById(key).innerHTML=`<img src="images/${res.data[key]}" style="width: 540px;" >`
+						}
+						
+					}
+				} else {
+					//If the request status is not 200, an error code will be displayed and redirected to the list page
+					alert(res.code)
+					window.location.href = 'list.html'
+				}
+			}).catch(error => console.error('There was a problem with your fetch operation:', error));
+		}
+
+	</script>
+</body>
+
+</html>

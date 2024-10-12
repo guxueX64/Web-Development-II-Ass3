@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Home Page</title>
+	<link href="css/index.css" rel="stylesheet">
+	<link href="css/share.css" rel="stylesheet">
+</head>
+
+<body>
+	<!--Top Navigation-->
+	<div class="headr">
+		<div class="heard-con">
+			<img src="images/logo.jpg" style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+			<div class="headr-nav">
+				<ul>
+					<li><a href="index.html" style="color: #4AB344"><span style="color: #4AB344">Home Page</span></a> </li>
+					<li><a href="list.html">List Page</a> </li>
+				</ul>
+				<ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                </ul>
+			</div>
+		</div>
+	</div>
+	<!--Top Navigation Finish-->
+	<!--banner image-->
+	<div class="her-banner">
+	</div>
+	<!--banner image finish-->
+	<!--Home page content-->
+
+
+
+	<div class="content">
+		<!--Recommended section-->
+		<div class="recommand clear">
+			<div class="rec-nav clear">
+				<h2>Fundraising  <span>Recommendation</span></h2>
+			</div>
+			<div class="rec-cont clear">
+				<div class="rec-left">
+					<div class="container">
+						<div class="story">
+							<p>Here, we share a story about how we help communities and change people's lives. This is a true story that showcases our mission and values.</p>
+						</div>
+			
+						<div class="contact">
+							<p>If you have any questions or would like to join our mission, please contact us through the following methods：</p>
+							<p>Email: 123@126.com</p>
+							<p>Phone: (123) 456-7890</p>
+							<p>Address: xxxxx</p>
+						</div>
+					</div>
+						<p>Copyright &copy; 2024 Wzy Non Profit Organization</p>
+					<img src="images/rc-1.jpg" style="width: 315px; margin-top: 20px;">
+				</div>
+				<div class="rec-right" id="rec-right">
+
+				</div>
+			</div>
+		</div>
+		<!--Recommended section-->
+	</div>
+
+
+<script>
+	fetch('http://localhost:8111/home').then(response => {
+		//Check the response status, if it is not within the range of 200-299, throw an error
+		if (!response.ok) {
+			throw new Error('Network response was not ok');
+		}
+		//Parse the response body in JSON format
+		return response.json();
+	})
+	.then(res => {
+		//Output response data on the console, mainly used for debugging
+		console.log(res)
+		//Check if the response status code is 200
+		if(res.status == 200){
+			//Extract response data, initialize string for concatenating HTML
+			let array = res.data,str=''
+			//Traverse the data array and generate the corresponding HTML string
+			for (let index = 0; index < array.length; index++) {
+				const element = array[index];
+				str +=`<div class="rcr">
+						<div class="rcr-top">
+							<img src="images/${element.fundraiser_image}" width="100%">
+						</div>
+						<div class="rcr-bot">
+							<div class="rb-top">
+								${element.caption}
+							</div>
+							<div class="second_P">
+								<span class="fk-prop">USD</span>
+								<span class="fk-prop-price">${element.current_funding}
+								</span>
+								<span class="second_Marketprice">USD ${element.target_funding}</span>
+							</div>
+							<div class="buy">
+								<a class="second_mallBuy" href="detail.html?id=${element.fundraiser_id}">
+									<span style="color: white;">detail</span>
+								</a>
+							</div>
+						</div>
+					</div>`
+			}
+			//Set the generated HTML string to page elements
+			document.getElementById("rec-right").innerHTML = str
+		}else{
+			//If the response status code is not 200, an error code prompt will pop up
+			alert(res.code)
+		}
+	})
+	//Dealing with errors in fetch operations
+	.catch(error => console.error('There was a problem with your fetch operation:', error));
+</script>
+
+</body>
+
+</html>
