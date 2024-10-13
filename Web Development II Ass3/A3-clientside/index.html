@@ -21,6 +21,7 @@
 				<ul>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+					<li><a href="admin.html">Admin Page</a></li>
                 </ul>
 			</div>
 		</div>
@@ -67,7 +68,7 @@
 
 
 <script>
-	fetch('http://localhost:8111/home').then(response => {
+	fetch('home').then(response => {
 		//Check the response status, if it is not within the range of 200-299, throw an error
 		if (!response.ok) {
 			throw new Error('Network response was not ok');

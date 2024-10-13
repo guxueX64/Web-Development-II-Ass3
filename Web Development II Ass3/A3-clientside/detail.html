@@ -6,6 +6,7 @@
 	<title>Detail</title>
 	<link href="css/detail.css" rel="stylesheet">
 	<link href="css/share.css" rel="stylesheet">
+	<style>.hd ul{float: left;}.hd li{float: left;}</style>
 </head>
 
 <body>
@@ -21,6 +22,7 @@
 				<ul>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+					<li><a href="admin.html">Admin Page</a></li>
                 </ul>
 			</div>
 		</div>
@@ -73,7 +75,7 @@
 					</div>
 				</div>
 				<div class="fk-pd5MallActBtns">
-					<div class="buttn" onclick="alert('This feature is under contruction')">
+					<div class="buttn" onclick="goDonate()">
 						Donate
 					</div>
 					<div class="buttn butto" onclick="window.location.href='list.html'">
@@ -83,24 +85,28 @@
 			</div>
 		</div>
 		<div class="cont-bot">
-			<div class="hd" style="margin-bottom: 50px;">
+			<div class="hd" >
 				<ul>
 					<li class="active">
 						<div class="hd1 acti">
 						</div>
+						Fundraising log(<span id="total_log">0</span>)
+					</li>
+					<li>
+						<div class="hd1">
+						</div>
 						Fundraising Detail
+						
 					</li>
 					<li>
 						<div class="hd1">
 						</div>
-						Comment(0)
-					</li>
-					<li>
-						<div class="hd1">
-						</div>
-						Fundraising log(0)
+						Comment
 					</li>
 				</ul>
+			</div>
+			<div class="bd" id="fundraiser_log">
+				
 			</div>
 		</div>
 	</div>
@@ -113,7 +119,7 @@
 			//Create URL parameter object to obtain GET parameters
 			let params = new URLSearchParams(window.location.search)
 			//Initiate a network request to obtain details page data
-			fetch('http://localhost:8111/detail/' + params.get("id")).then(response => {
+			fetch('detail/' + params.get("id")).then(response => {
 				//Check the network response status and throw an error if it is not normal
 				if (!response.ok) {
 					throw new Error('Network response was not ok');
@@ -137,7 +143,33 @@
 							//Rendering images
 							document.getElementById(key).innerHTML=`<img src="images/${res.data[key]}" style="width: 540px;" >`
 						}
-						
+						if(key == 'donations'){
+							//捐款列表
+							let donations = res.data[key];
+							if(donations.length>0){
+								var donationsHtml=''
+								for(let i=0;i<donations.length;i++){
+									donations[i].one = donations[i].date.split(" ")[0]
+									donations[i].two = donations[i].date.split(" ")[1]
+									donationsHtml+=`<div class="rec-cot">
+										<div class="rgl-cont">
+											<p>${donations[i].one}</p>
+											<span>${donations[i].two}</span>
+										</div>
+										<div class="rgr-cont">
+											<h3>giver : ${donations[i].giver}</h3>
+											<p>USD ${donations[i].amount}&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;&nbsp;&nbsp;thank you for you love</p>
+										</div>
+									</div>`
+									
+								}
+								document.getElementById("total_log").innerHTML=donations.length
+								document.getElementById("fundraiser_log").innerHTML=donationsHtml
+							}else{
+								document.getElementById("fundraiser_log").innerHTML ="<p style='height: 150px;line-height: 150px;'>No more data</p>"
+							}
+							
+						}
 					}
 				} else {
 					//If the request status is not 200, an error code will be displayed and redirected to the list page
@@ -147,6 +179,13 @@
 			}).catch(error => console.error('There was a problem with your fetch operation:', error));
 		}
 
+		//跳转到捐赠页面
+		function goDonate(){
+			//Create URL parameter object to obtain GET parameters
+			let params = new URLSearchParams(window.location.search)
+			window.location.href = 'donate.html?id='+params.get("id")
+
+		}
 	</script>
 </body>
 

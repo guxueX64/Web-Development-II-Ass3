@@ -21,6 +21,7 @@
 				<ul>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#contact">Contact Us</a></li>
+					<li><a href="admin.html">Admin Page</a></li>
                 </ul>
 			</div>
 		</div>
@@ -160,7 +161,7 @@
 
 		//Perform search based on current criteria
 		function search() {
-			fetch('http://localhost:8111/search?city='+city+'&category_id='+category+"&caption="+caption).then(response => {
+			fetch('search?city='+city+'&category_id='+category+"&caption="+caption).then(response => {
 				if (!response.ok) {
 					throw new Error('Network response was not ok');
 				}
