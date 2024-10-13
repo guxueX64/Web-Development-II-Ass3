@@ -43,6 +43,11 @@ INSERT INTO `donation` VALUES (5, '188', 'zhangsan', 1, '2024-10-10 16:53:31');
 INSERT INTO `donation` VALUES (6, '156', 'lisi', 1, '2024-10-10 16:53:53');
 INSERT INTO `donation` VALUES (7, '15', 'lala', 11, '2024-10-10 16:55:0');
 INSERT INTO `donation` VALUES (8, '16', 'newone', 11, '2024-10-10 16:55:13');
+INSERT INTO `donation` VALUES (1, '15', '123', 11, '2024-10-10 16:55:14');
+INSERT INTO `donation` VALUES (2, '45', '321', 11, '2024-10-10 16:55:15');
+INSERT INTO `donation` VALUES (9, '75', 'ne', 11, '2024-10-10 16:55:16');
+INSERT INTO `donation` VALUES (10, '36', 'no', 11, '2024-10-10 16:55:17');
+INSERT INTO `donation` VALUES (11, '35', 'newtwo', 11, '2024-10-10 16:55:18');
 
 -- ----------------------------
 -- Table structure for fundraiser
@@ -71,5 +76,8 @@ INSERT INTO `fundraiser` VALUES (4, 'Roxanne De Groof', 'Help mij het leven nog 
 INSERT INTO `fundraiser` VALUES (5, 'Gina DellaMonica- Giacchetto and 2 others', 'Join us to help Austin and Bella Trezza and their family', '200000', '0', 'Chicago', '1', 3, '5.png');
 INSERT INTO `fundraiser` VALUES (6, 'Corneby and Titmus Family and Friends and Rob Corneby', 'Help a Family in Need on their Journey to Healing', '100000', '0', 'Los Angeles', '2', 3, '6.png');
 INSERT INTO `fundraiser` VALUES (7, 'Claudia Elsässer is organizing', 'Plötzlicher Tod des Familienvaters', '60000', '0', 'Los Angeles', '2', 1, '7.png');
+INSERT INTO `fundraiser` VALUES (8, 'Gina DellaMonica- Giacchetto and 2 others', 'Join us to help Austin and Bella Trezza and their family', '200000', '0', 'Chicago', '1', 3, '5.png');
+INSERT INTO `fundraiser` VALUES (9, 'Corneby and Titmus Family and Friends and Rob Corneby', 'Help a Family in Need on their Journey to Healing', '100000', '0', 'Los Angeles', '2', 3, '6.png');
+INSERT INTO `fundraiser` VALUES (10, 'Claudia Elsässer is organizing', 'Plötzlicher Tod des Familienvaters', '60000', '0', 'Los Angeles', '2', 1, '7.png');
 
 SET FOREIGN_KEY_CHECKS = 1;
