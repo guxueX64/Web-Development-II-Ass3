@@ -45,14 +45,14 @@ export class ActionComponent implements OnInit {
     }).catch(error => console.error('There was a problem with your fetch operation:', error));
   }
 
-  //返回
+  //return
    goBack() {
     //Redirect to the list page
     window.location.href = '/adminPage'
   }
 
 
-  //保存
+  //save
    saveData() {
     let params = new URLSearchParams(window.location.search)
     let fundraiser_id = parseInt(params.get("id")!)

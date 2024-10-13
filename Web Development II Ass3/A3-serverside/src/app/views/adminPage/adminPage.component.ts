@@ -52,7 +52,7 @@ export class AdminPageComponent implements OnInit {
   }
 
   goDelete(id:any){
-    //删除前校验弹框
+    //Verify the pop-up box before deleting
     if(confirm("Are you sure you want to delete this item?")){
       //Check if the fundraiser has donations, if it has, prompt the user to delete it
       fetch( 'http://localhost:8111/detailSimple/' +id).then(response => {
