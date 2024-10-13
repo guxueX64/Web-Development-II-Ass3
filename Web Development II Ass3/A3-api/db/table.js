@@ -8,11 +8,18 @@ const fundraiser = {
 //Define an object named category to represent relevant information about the category
 const category = {
     name: 'category', 
-    fieds: ['category_id', 'name'], 
+    fieds:  ['category_id', 'name'],
+};
+
+
+const donation = {
+    name: 'donation', 
+    fieds:  ['fundraiser_id', 'date', 'donation_id', 'giver', 'amount']
 };
 
 //Export funder and category objects
 module.exports = {
     fundraiser,
-    category
+    category,
+    donation
 };
