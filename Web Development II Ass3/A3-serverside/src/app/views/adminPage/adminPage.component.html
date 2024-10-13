@@ -1,0 +1,47 @@
+<!--Top navigation-->
+<div class="headr">
+  <div class="heard-con">
+    <img src="../../../assets/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+    <div class="headr-nav">
+      <ul>
+        <li><a href="/home"><span>Home Page</span></a> </li>
+        <li><a href="/listPage"><span>List Page</span></a> </li>
+      </ul>
+      <ul>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/adminPage" style="color: #4AB344"><span style="color: #4AB344"></span>Admin Page</a> </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--Top navigation-->
+
+<div class="content">
+  <div class="buttn" (click)="goAction(0)">
+    Insert New
+  </div>
+  <div class="sale">
+    <ul class="sale-title">
+      <li>caption(active)</li>
+      <li>target/current</li>
+      <li>organizer</li>
+      <li>city</li>
+      <li>action bar</li>
+    </ul>
+    <div id="every">
+      <div *ngIf="arrayData.length>0">
+        <ul  class="sale-content" *ngFor="let item of arrayData">
+          <li class='caption-line'>{{item.caption}}</li>
+          <li class='caption-line'>{{item.target_funding}}/{{item.current_funding}}</li>
+          <li class='caption-line'>{{item.organizer}}</li>
+          <li class='caption-line'>{{item.city}}</li>
+          <li class='caption-line'><span class='editspan' (click)='goAction(item.fundraiser_id)'>Edit</span> <span class='deletespan'  (click)='goDelete(item.fundraiser_id)'>Delete</span></li>
+        </ul>
+      </div>
+      <div *ngIf="arrayData.length===0">
+        <p class='nodata'>no more data...</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+<!--Top navigation-->
+<div class="headr">
+  <div class="heard-con">
+    <img src="../../../../assets/images/logo.jpg"
+         style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+    <div class="headr-nav">
+      <ul>
+        <li><a href="/home"><span>Home Page</span></a> </li>
+        <li><a href="/listPage">List Page</a>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/adminPage" style="color: #4AB344"><span style="color: #4AB344"></span>Admin Page</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="cont-bot">
+    <div class="hd" style="border: none;margin-bottom: 20px;">
+      <ul>
+        <li class="active" style="border: 1px  solid #D1D1D1;width: 100%;    text-align: left;">
+          <div class="hd1 acti" style="width: 100%;">
+          </div>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;action
+        </li>
+      </ul>
+    </div>
+    <div class="bd">
+      <div class="rec-cot"
+           style="border: none;height: 780px;border: 1px  solid #D1D1D1;border-radius: 10px;margin-bottom: 20px;">
+        <div class="message">
+          <p>image</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <input type="file" id="fimage"/><br/><br/>
+            <input class="g_itext" type="text" placeholder="show image path" id="fundraiser_image" 
+                   autocomplete="off">
+            <div class="star">*</div>
+          </div>
+          <p>organizer</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <input class="g_itext" type="text" placeholder="input organizer" id="organizer"
+                   autocomplete="off">
+            <div class="star">*</div>
+          </div>
+          <p>caption</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <input class="g_itext" type="text" placeholder="input caption" id="caption"
+                   autocomplete="off">
+            <div class="star">*</div>
+          </div>
+          <p>target funding</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <input class="g_itext" type="number" placeholder="input target funding" id="target_funding"
+                   autocomplete="off">
+            <div class="star">*</div>
+          </div>
+          <p>city</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <select  class="resize" style="width: 50%;" id="city">
+              <option value="Chicago">Chicago</option>
+              <option value="Los Angeles">Los Angeles</option>
+              <option value="Seattle">Seattle</option>
+            </select>
+            <div class="star">*</div>
+          </div>
+          <p>category</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <select  class="resize" style="width: 50%;" id="category_id">
+              <option value="1">Medical</option>
+              <option value="2">Memorial</option>
+              <option value="3">Family</option>
+            </select>
+            <div class="star">*</div>
+          </div>
+          <p>Active</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <div class="siteFormItemCheck">
+              <input type="radio" id="activeRadio1" name="active" value="1" checked>
+              <label for="activeRadio1">yes</label>
+            </div>
+            <div class="siteFormItemCheck">
+              <input type="radio" id="activeRadio" name="active" value="2">
+              <label for="activeRadio">no</label>
+            </div>
+            <div class="star">*</div>
+          </div>
+          <div class="buttn" style="width: 50%;" (click)="saveData()">Submit</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

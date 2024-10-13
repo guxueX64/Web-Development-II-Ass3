@@ -1,0 +1,100 @@
+<!--Top navigation-->
+<div class="headr">
+  <div class="heard-con">
+    <img src="../../../../assets/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+    <div class="headr-nav">
+      <ul>
+        <li><a href="/"><span>Home Page</span></a> </li>
+        <li><a href="/listPage" style="color: #4AB344"><span style="color: #4AB344"></span>List Page</a> </li>
+      </ul>
+      <ul>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/adminPage">Admin Page</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--Top navigation-->
+<!--banner-->
+<div class="her-banner">
+</div>
+<!--banner-->
+
+<div class="content">
+  <div class="cont-top">
+    <div class="cont-left">
+      <div class="ctl-img" id="fundraiser_image">
+        <img src="../../../../assets/images/logo.jpg" style="width: 400px;height: 400px;" >
+      </div>
+      <div class="collect">
+        <div class="coll">
+          <span id="organizer"></span> is this organizer fundraiser / <span id="active"></span>
+        </div>
+      </div>
+
+    </div>
+    <div class="cont-right">
+      <div class="J_productTitle title g_minor">
+        <span id="caption"></span>
+      </div>
+      <div class="pic">
+        <span class="ppi">Current funding</span>
+        <span class="f-mallUnit">&nbsp;&nbsp;&nbsp;USD</span>
+        <span class="pcc" id="current_funding"></span>
+      </div>
+      <div class="pic">
+        <span class="ppi">Target funding</span>
+        <span class="f-mallUnit">&nbsp;&nbsp;&nbsp;USD</span>
+        <span  id="target_funding"></span>
+      </div>
+      <div class="pict">
+        <div class="f-proSatifySumWrap">
+          <div class="f-satifyDetail">
+            <span class="g_minor  salesVolume">Category:</span><span class="J_commNum" id="name"></span>
+          </div>
+        </div>
+      </div>
+      <div class="pict">
+        <div class="f-proSatifySumWrap">
+          <div class="f-satifyDetail">
+            <span class="g_minor  salesVolume">City:</span><span class="J_commNum" id="city"></span>
+          </div>
+        </div>
+      </div>
+      <div class="fk-pd5MallActBtns">
+        <div class="buttn" (click)="goDonate()">
+          Donate
+        </div>
+        <div class="buttn butto" (click)="goTo('/listPage')">
+          Back
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cont-bot">
+    <div class="hd" >
+      <ul>
+        <li class="active">
+          <div class="hd1 acti">
+          </div>
+          Fundraising log(<span id="total_log">0</span>)
+        </li>
+        <li>
+          <div class="hd1">
+          </div>
+          Fundraising Detail
+
+        </li>
+        <li>
+          <div class="hd1">
+          </div>
+          Comment
+        </li>
+      </ul>
+    </div>
+    <div class="bd" id="fundraiser_log">
+
+    </div>
+  </div>
+</div>

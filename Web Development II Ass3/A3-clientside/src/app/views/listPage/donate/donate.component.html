@@ -1,0 +1,68 @@
+<!--Top navigation-->
+<div class="headr">
+  <div class="heard-con">
+    <img src="../../../../assets/images/logo.jpg"
+         style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+    <div class="headr-nav">
+      <ul>
+        <li><a href="/"><span>Home Page</span></a> </li>
+        <li><a href="/listPage" style="color: #4AB344"><span style="color: #4AB344"></span>List Page</a>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/adminPage">Admin Page</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--Top navigation-->
+<!--banner-->
+<div class="her-banner">
+</div>
+<!--banner-->
+
+<div class="content">
+  <div class="cont-top" style="height: 350px;">
+    <div class="cont-left">
+      <div class="ctl-img" id="fundraiser_image">
+        <img src="../../../../assets/images/logo.jpg" style="width: 400px;height: 400px;">
+      </div>
+
+    </div>
+    <div class="cont-right" style="height: 310px;">
+      <p style="margin-bottom: 20px;font-size: 14px;color: #898a88;">Fundraising Detail</p>
+      <div class="J_productTitle title g_minor">
+        <span id="caption"></span>
+      </div>
+      <div class="pic" style="height: 160px;border: none;">
+        <span class="f-mallUnit">USD</span>
+        <span id="target_funding" style="font-size:50px;"></span>
+      </div>
+      <div class="buttn butto" (click)="goBack()">Back</div>
+    </div>
+  </div>
+  <div class="cont-bot">
+    <div class="bd">
+      <div class="rec-cot"
+           style="border: none;height: 300px;border: 1px  solid #D1D1D1;border-radius: 10px;margin-bottom: 20px;">
+        <div class="message">
+          <p>Giver Name</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <input class="g_itext" type="text" placeholder="input your name" id="giver"
+                   autocomplete="off">
+            <div class="star">*</div>
+          </div>
+          <p>Amount</p>
+          <div class="siteFormMiddle" style="margin-bottom: 20px;">
+            <input class="g_itext" type="number" placeholder="input amount,min 5 USD" id="amount"
+                   autocomplete="off">
+            <div class="star">*</div>
+          </div>
+          <div class="buttn" style="width: 50%;" (click)="saveData()">Submit my donation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

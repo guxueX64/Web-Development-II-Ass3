@@ -1,0 +1,93 @@
+<!--Top Navigation-->
+<div class="headr">
+  <div class="heard-con">
+    <img src="../../../assets/images/logo.jpg" style="margin-top: 7px;float: left;position: absolute;width: 60px;margin-top: 20px;">
+    <div class="headr-nav">
+      <ul>
+        <li><a href="/"><span>Home Page</span></a> </li>
+        <li><a href="/listPage" style="color: #4AB344"><span style="color: #4AB344"></span>List Page</a> </li>
+      </ul>
+      <ul>
+        <li><a href="/aboutUs">About Us</a></li>
+        <li><a href="/contactUs">Contact Us</a></li>
+        <li><a href="/adminPage">Admin Page</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--Top Navigation Finish-->
+
+<!--banner-->
+<div class="her-banner">
+
+</div>
+<!--banner-->
+
+<div class="content">
+  <!--Begin-->
+  <div class="recommand clear">
+    <div class="rec-cont clear">
+      <div class="rec-left">
+        <div class="classily" style="height: 150px;">
+          <div class="cltop">
+            <p><input style="width: 90%;height: 25px;line-height: 25px;" placeholder="Input Caption" id="search"/></p>
+          </div>
+          <div class="cltcon">
+            <div class="buy" style="margin: 0;">
+              <a class="second_mallBuy" href="javascript:void(0)" style="width: 100%;" (click)="searchKey()">
+                <span style="color: white;">Search</span>
+              </a>
+            </div>
+            <div class="buy" >
+              <a class="second_mallBuy" href="javascript:void(0)" (click)="searchClear()" style="width: 100%;background-color:#dadada">
+                <span style="color: #4AB344;">Clear</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+        <div class="classily" style="margin-top: 10px;">
+          <div class="cltop">
+            <p>Category</p>
+          </div>
+          <div class="cltcon">
+            <p><a href="javascript:void(0)" class="category active" (click)="searchCategory('')">All</a>
+            </p>
+            <p><a href="javascript:void(0)" class="category"
+                  (click)="searchCategory(1)">Medical</a> </p>
+            <p><a href="javascript:void(0)" class="category"
+                  (click)="searchCategory(2)">Memorial</a></p>
+            <p style="border-bottom:0px dashed #999999;"><a class="category" href="javascript:void(0)"
+                                                            (click)="searchCategory(3)">Family</a></p>
+          </div>
+
+        </div>
+        <div class="classily" style="margin-top: 10px;">
+          <div class="cltop">
+            <p>City</p>
+          </div>
+          <div class="cltcon">
+            <p><a href="javascript:void(0)" class="city active" (click)="searchCity('')">All</a> </p>
+            <p><a href="javascript:void(0)" class="city" (click)="searchCity('Chicago')">Chicago</a>
+            </p>
+            <p><a href="javascript:void(0)" class="city" (click)="searchCity('Los Angeles')">Los
+              Angeles</a></p>
+            <p style="border-bottom:0px dashed #999999;"><a class="city"
+                                                            (click)="searchCity('Seattle')">Seattle</a></p>
+          </div>
+
+        </div>
+
+
+      </div>
+
+      <div class="rec-right">
+        <div class="bd">
+          <div class="bd1" style="display: block" id="rec-right">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--End-->
+</div>
