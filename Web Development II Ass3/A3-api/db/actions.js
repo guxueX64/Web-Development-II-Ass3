@@ -50,10 +50,10 @@ class Surface { //Declared table operation class
   }
 
   
-  //字段检测，判断前端传入的字段是否是正确的
+  //Field detection to determine if the fields passed in by the front-end are correct
   checkFieds(obj) {
     for (const k in obj) {
-      //如果传入的数据字段不正确就删除字段信息也可改成其他操作
+      //If the input data field is incorrect, the field information can be deleted or changed to other operations
       if (k in this.fieds) {
         delete obj[k];
       }
@@ -61,7 +61,7 @@ class Surface { //Declared table operation class
     return obj;
   }
 
-  //表数据插入方法
+  //Table data insertion method
   insert(args, call) {
     this.index = '';
     this.value = '';
@@ -82,19 +82,19 @@ class Surface { //Declared table operation class
     this.value = this.value.substr(0, this.value.length - 1);
  
     const sql = `INSERT INTO ${this.sheetName} (${this.index}) VALUES(${this.value})`;
-    //调用query方法查询
+    //Call the query method to query
     this.query(sql, call);
   }
 
   
-  //表删除方法
+  //Table deletion method
   delete(data, call) {
     const { index, value } = data;
-    const sql = `DELETE from ${this.sheetName} where ${index}=${value};`; //按需删除
+    const sql = `DELETE from ${this.sheetName} where ${index}=${value};`; //Delete on demand
     this.query(sql, call);
   }
 
-  //表数据更新方法
+  //Table data update method
   update(index, args, call) {
     this.value = '';
     args = this.checkFieds(args);

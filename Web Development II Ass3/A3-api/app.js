@@ -99,7 +99,7 @@ app.get('/detailSimple/:id', function (req, res, next) {
   }
 });
 
-//删除募捐列表
+//Delete donation list
 app.delete('/fundraiser/:id', function (req, res, next) {
   if(req.params.id && parseInt(req.params.id)>0){
     const upid = parseInt(req.params.id)
@@ -116,7 +116,7 @@ app.delete('/fundraiser/:id', function (req, res, next) {
 });
 
 
-//新增募捐
+//Newly added fundraising
 app.post('/fundraiserAdd', function (req, res, next) {
   let body = req.body;
   fundraiserSheet.insert(body,(err, data) => {
@@ -132,7 +132,7 @@ app.post('/fundraiserAdd', function (req, res, next) {
   });
 });
 
-//修改募捐
+//Modify fundraising
 app.put('/fundraiserEdit', function (req, res, next) {
   let body = req.body;
   fundraiserSheet.update("fundraiser_id",body,(err, data) => {
@@ -148,17 +148,17 @@ app.put('/fundraiserEdit', function (req, res, next) {
   });
 });
 
-//捐赠
+//donate
 app.post('/donation', function (req, res, next) {
   let body = req.body;
-  //新增捐款
+  //New Donations
   donationSheet.insert(body,(err, data) => {
     if (err) {
       res.send({ status: 504, code: 'request error!' });
       return;
     }
     if(data.affectedRows > 0){
-      //更新捐款进度费用总数
+      //Update donation progress and total cost
       query("update fundraiser set current_funding = cast(current_funding as DECIMAL)+"+body.amount+" where fundraiser_id="+body.fundraiser_id, (fundraisererr, fundraiserdata) => {
         if (fundraisererr) {
           res.send({ status: 504, code: 'request error!' });
@@ -176,7 +176,7 @@ app.post('/donation', function (req, res, next) {
   });
 });
 
-//上传
+//Upload
 app.post('/upload',upload.single("image"), function (req, res, next) {
   if(req.file){
     res.send({ status: 200, code: 'request success!', data: req.file.filename });
