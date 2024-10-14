@@ -46,7 +46,7 @@ export class DonateComponent implements OnInit {
     }).catch(error => console.error('There was a problem with your fetch operation:', error));
   }
 
-  //返回
+  //return
    goBack() {
     //Create URL parameter object to obtain GET parameters
     let params = new URLSearchParams(window.location.search)
@@ -55,7 +55,7 @@ export class DonateComponent implements OnInit {
   }
 
 
-  //保存
+  //save
    saveData() {
     let amount = (document.getElementById("amount")as HTMLInputElement).value
     try {
@@ -105,7 +105,7 @@ export class DonateComponent implements OnInit {
     })
   }
 
-  //当前时间格式化
+  //Format the current time
   getCurrentDate() {
     let date = new Date()
     return date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + " " + date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds()
