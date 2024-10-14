@@ -38,7 +38,7 @@ export class DetailComponent implements OnInit {
             document.getElementById(key)!.innerHTML=`<img src="../../../../assets/images/${res.data[key]}" style="width: 540px;" >`
           }
           if(key == 'donations'){
-            //捐款列表
+            //Donation List
             let donations = res.data[key];
             if(donations.length>0){
               var donationsHtml=''
@@ -73,14 +73,14 @@ export class DetailComponent implements OnInit {
     }).catch(error => console.error('There was a problem with your fetch operation:', error));
   }
 
-  //跳转到捐赠页面
+  //Jump to the donation page
   goDonate(){
     //Create URL parameter object to obtain GET parameters
     let params = new URLSearchParams(window.location.search)
     window.location.href = '/donate?id='+params.get("id")
   }
 
-  //跳转到捐赠页面
+  //Jump to the donation page
   goTo(to:string){
     window.location.href = to
   }
